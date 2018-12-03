@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
+    <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+    <title>Gameplay</title>
+</head>
+
+<!-- {{!-- Header --}} -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item">
+            <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/bug.png" width="34" height="40">
+        </a>
+        <div class="navbar-item">
+            Whack-A-Bug
+        </div>
+
+    </div>
+    <div class="navbar-end navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+            My Profile
+        </a>
+
+        <div class="navbar-dropdown">
+            <a class="navbar-item">
+                Settings
+            </a>
+            <a class="navbar-item">
+                Contact
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+                Log Out
+            </a>
+        </div>
+    </div>
+
+    </div>
+</nav>
+
+<!-- {{!-- Gameplay Box --}} -->
+<div class="columns is-mobile has-text-centered">
+    <div class="column is-3"></div>
+    <div class="column is-2 game-data-header">BUGS LEFT</div>
+    <div class="column is-2 game-data-header">DIFFICULTY</div>
+    <div class="column is-2 game-data-header">TIME</div>
+    <div class="column is-3"></div>
+</div>
+<div class="columns is-mobile has-text-centered">
+    <div class="column is-3">
+        <button class="button is-primary" id="gameplay-instructions-btn">Gameplay Instructions</button>
+    </div>
+    <div class="column is-2 game-data" id="bugcount">5</div>
+    <div class="column is-2 game-data" id="difficulty">Easy</div>
+    <div class="column is-2 game-data" id="timer">00:00</div>
+    <div class="column is-3"></div>
+</div>
+<div class="columns is-mobile">
+    <div class="column is-3"></div>
+    <div class="column has-text-centered is-6" id="gamebox-container">
+        GAMEBOX
+    </div>
+    <div class="column is-3"></div>
+</div>
+
+<!-- {{!-- Instructions Modal --}} -->
+<div class="instructionsmodal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">HOW TO PLAY</p>
+            <button class="delete" aria-label="close" id="closemodalbtn"></button>
+        </header>
+        <section class="modal-card-body">
+            <p>1. Select your difficulty</p>
+            <div class="buttons has-addons">
+                <span class="button btndifficulty" id="easy">Easy</span>
+                <span class="button btndifficulty" id="medium">Medium</span>
+                <span class="button btndifficulty" id="hard">Hard</span>
+            </div>
+
+            <p>2. Click on the bugs (green circles) as quickly as you can.</p>
+            <p>3. When you click on the first bug, the remaining bugs will randomly move to a new position.</p>
+            <p>4. Go as fast as you can!</p>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success" id="start-game-btn">I'M READY TO SMASH SOME BUGS</button>
+        </footer>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    var gameDifficulty;
+    // Get the modal
+    var modal = $(".instructionsmodal");
+
+    // Get the button that opens the modal
+    var btn = $("#modalbtn");
+
+    // show instructions modal on click of btn
+    $("#gameplay-instructions-btn").on("click", function () {
+        modal.addClass("active");
+    })
+    // Close modal btn
+    $("#closemodalbtn").on("click", function () {
+        modal.removeClass("active");
+        modal.addClass("hiddenmodal");
+    })
+
+    // Close modal when window clicked
+    $(".modal-background").on("click", function () {
+        modal.removeClass("active");
+        modal.addClass("hiddenmodal");
+    })
+
+    // difficulty btn toggle
+    $(".btndifficulty").on("click", function () {
+        gameDifficulty = $(this).attr("id");
+        $(".btndifficulty").removeClass("activedifficulty")
+        $(this).addClass("activedifficulty");
+        console.log(gameDifficulty);
+    })
+
+</script>
+</html>
