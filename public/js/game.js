@@ -8,13 +8,19 @@ $(document).ready(function () {
     var started = false;
 
     var difficulty = $(".activedifficulty").text().toLowerCase();
+
+    $(document).on("click", ".btndifficulty", function () {
+        difficulty = $(this).text();
+    })
+
     // console.log(difficulty)
 
-    switch (difficulty) {
-        
-    }
+    function setDifficulty(diffSet) {
+        switch (diffSet) {
 
-    $("#bugcount").text(moles);
+        }
+        $("#bugcount").text(moles);
+    }
 
     // TODO
     // difficulty settings determin different grid sizes and mole counts
