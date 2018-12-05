@@ -1,7 +1,8 @@
 $(document).ready(function () {
 
     // Global variables
-    var moles = 5;
+    var slapSound = document.getElementById("slap");
+    var moles;
     var gridSize = 36;
     var moleIndexes = [];
     var time = 0;
@@ -10,39 +11,30 @@ $(document).ready(function () {
     var difficulty = $(".activedifficulty").text().toLowerCase();
 
     $(document).on("click", ".btndifficulty", function () {
-        difficulty = $(this).text();
+        difficulty = $(this).text().toLowerCase();
     })
 
-    // console.log(difficulty)
-
     function setDifficulty(diffSet) {
+        console.log(difficulty)
         switch (diffSet) {
-
+            case "easy":
+                moles = 6;
+                break;
+            case "medium":
+                moles = 10;
+                break;
+            case "hard":
+                moles = 16;
+                break;
         }
         $("#bugcount").text(moles);
     }
 
-    // TODO
-    // difficulty settings determin different grid sizes and mole counts
-
-    //-------------------------------------------------------
     // Run program
-    // $(".modal-background").on("click", function () {
-    //     if (!started) {
-    //         placeMoles();
-    //         start();
-    //         started = true;
-    //     }
-    // });
-    $("#closemodalbtn").on("click", function () {
-        if (!started) {
-            placeMoles();
-            start();
-            started = true;
-        }
-    });
+    //-------------------------------------------------------
     $("#start-game-btn").on("click", function () {
         if (!started) {
+            setDifficulty(difficulty);
             placeMoles();
             start();
             started = true;
@@ -79,6 +71,7 @@ $(document).ready(function () {
 
     $(document).on("click", '[data-lit="true"]', function () {
         // console.log("mole clicked")
+        slapSound.play();
         moles--;
         $("#bugcount").text(moles);
         if (moles === 0) {
