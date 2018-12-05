@@ -12,7 +12,8 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item">
-            <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/bug.png" width="34" height="40">
+            <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/bug.png" width="34"
+                height="40">
         </a>
         <div class="navbar-item">
             Whack-A-Bug
@@ -55,13 +56,56 @@
     </div>
     <div class="column is-2 game-data" id="bugcount">5</div>
     <div class="column is-2 game-data" id="difficulty">Easy</div>
-    <div class="column is-2 game-data" id="timer">00:00</div>
+    <div class="column is-2 game-data" id="timer">00:00.00</div>
     <div class="column is-3"></div>
 </div>
 <div class="columns is-mobile">
     <div class="column is-3"></div>
     <div class="column has-text-centered is-6" id="gamebox-container">
-        GAMEBOX
+        <div id="row">
+            <div class="col">
+              <img id="0" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="1" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="2" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="3" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="4" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+            </div>
+            <div class="col">
+              <img id="5" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="6" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="7" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="8" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="9" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+            </div>
+            <div class="col">
+              <img id="10" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="11" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="12" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="13" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="14" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+            </div>
+            <div class="col">
+              <img id="15" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="16" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="17" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="18" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="19" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+            </div>
+            <div class="col">
+              <img id="20" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="21" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="22" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="23" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+              <img id="24" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+            </div>
+          </div>
+        <ul>
+            <% for(var i=0; i<userData.length; i++) {%>
+            <li>
+                <%= userData[i] %>
+            </li>
+            <% } %>
+        </ul>
     </div>
     <div class="column is-3"></div>
 </div>
@@ -125,6 +169,8 @@
         $(this).addClass("activedifficulty");
         console.log(gameDifficulty);
     })
-
 </script>
+
+<script src="/js/game.js"></script>
+
 </html>

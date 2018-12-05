@@ -2,8 +2,24 @@
     line-height: 2.5;
   }
   
+  .circle {
+    width: 100px;
+    filter: hue-rotate(120deg) brightness(1.5) grayscale(30%);
+    /* filter: hue-rotate(120deg); 240deg = blue, 120deg = green */
+  }
   
-  #footer{
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  .col img {
+    margin-top: 8px;
+    vertical-align: middle;
+  }
+
+  .footer{
     font-size: 12px;
     border: 2px solid #252839;
     text-align: center;
@@ -102,4 +118,16 @@
 
   .notification{
     padding: 1.25rem 1.5rem .5rem 1.5rem;
+  }
+
+  @media screen and (max-width: 1097px) {
+    .circle {
+      width: 70px;
+    }
+  }
+  
+  @media screen and (max-width: 797px) {
+    .circle {
+      width: 30px;
+    }
   }
