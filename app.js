@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 
 const app = express();
+const port = 3000;
 
 app.use(express.static(__dirname + '/public'));
 
@@ -45,6 +46,6 @@ app.get('/', (req, res) => {
     res.render('home', { user: req.user });
 });
 
-app.listen(3000, () => {
-    console.log('app now listening for requests on port 3000');
+app.listen(port, () => {
+    console.log('app now listening for requests on port ' + port + '. https://localhost:' + port);
 });
