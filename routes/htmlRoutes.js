@@ -3,6 +3,8 @@ const router = require('express').Router();
 const passport = require('passport');
 const Score = require('../models/score-model');
 
+
+
 // module.exports = function(app) {
 //     // Load index page
 //     app.get("/", function(req, res) {
