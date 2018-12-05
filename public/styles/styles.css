@@ -66,6 +66,34 @@
   .instructionsmodal{
     visibility: visible;
   }
+
+  /* ---------------------------- */
+  #outer {
+    display: table;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  #middle {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  #inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 705px;
+  }
+  /* ---------------------------- */
+
+  .modal-background {
+    background-size: 100% 100vh;
+    position: fixed;
+  }
+
   .hiddenmodal{
     visibility: hidden;
   }
@@ -118,14 +146,32 @@
     padding: 1.25rem 1.5rem .5rem 1.5rem;
   }
 
-  @media screen and (max-width: 1097px) {
+  @media screen and (max-width: 1305px) {
+    .circle {
+      width: 85px;
+    }
+  }
+  
+  @media screen and (max-width: 1125px) {
     .circle {
       width: 70px;
     }
   }
-  
-  @media screen and (max-width: 797px) {
+
+  @media screen and (max-width: 945px) {
     .circle {
-      width: 30px;
+      width: 50px;
+    }
+  }
+
+  @media screen and (max-width: 705px) {
+    .circle {
+      width: 40px;
+    }
+  }
+
+  @media screen and (max-width: 585px) {
+    .circle {
+      width: 24px;
     }
   }

@@ -2,10 +2,17 @@ $(document).ready(function () {
 
     // Global variables
     var moles = 5;
-    var gridSize = 25;
+    var gridSize = 35;
     var moleIndexes = [];
     var time = 0;
     var started = false;
+
+    var difficulty = $(".activedifficulty").text().toLowerCase();
+    // console.log(difficulty)
+
+    switch (difficulty) {
+        
+    }
 
     $("#bugcount").text(moles);
 
@@ -14,13 +21,13 @@ $(document).ready(function () {
 
     //-------------------------------------------------------
     // Run program
-    $(".modal-background").on("click", function () {
-        if (!started) {
-            placeMoles();
-            start();
-            started = true;
-        }
-    });
+    // $(".modal-background").on("click", function () {
+    //     if (!started) {
+    //         placeMoles();
+    //         start();
+    //         started = true;
+    //     }
+    // });
     $("#closemodalbtn").on("click", function () {
         if (!started) {
             placeMoles();
@@ -71,11 +78,16 @@ $(document).ready(function () {
         if (moles === 0) {
             $(this).attr("data-lit", "false").css("filter", "hue-rotate(120deg) brightness(1.5) grayscale(30%)");
             stop();
-            console.log("Time: " + $("#timer").text())
+            console.log("Time: " + $("#timer").text());
             console.log("WIN");
         } else {
             resetMoles();
         }
+    });
+
+    $(document).on("click", '[data-lit="false"]', function () {
+        time += 100;
+        console.log("TIME PENALTY");
     });
 
     // TODO
