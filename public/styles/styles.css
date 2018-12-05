@@ -1,7 +1,7 @@
 .list-group-item {
     line-height: 2.5;
   }
-  
+
   .circle {
     width: 100px;
     filter: hue-rotate(120deg) brightness(1.5) grayscale(30%);
@@ -19,12 +19,14 @@
     vertical-align: middle;
   }
 
-  .footer{
-    border: 2px solid black;
+  #footer{
+    font-size: 12px;
+    border: 2px solid #252839;
     text-align: center;
-    background-color: #f2b632;
+    background-color: #b5b5b7;
     color: #677077;
-    height: 5px;
+    height: 40px;
+    position: relative;
   }
   
   #playbtn {
@@ -43,9 +45,20 @@
   }
   
   .hero-body {
-    background-color: #252839;
+    display: block;
+    margin: auto;
+    background: no-repeat;
+    background-image: url("/img/clipart333082.png");
+    background-size: 800px 600px;
+    background-position: center;
+  }
+
+  .hero.is-info {
+    background-color: black;
   }
   
+
+
   #gamebox-container{
     border: 2px black solid;
     padding-left: 20px;
@@ -144,6 +157,21 @@
 
   .notification{
     padding: 1.25rem 1.5rem .5rem 1.5rem;
+  }
+
+  .title {
+    font-size: 80px;
+    mix-blend-mode: difference;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  .subtitle {
+    mix-blend-mode: difference;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  .login-btn {
+    width: 200px;
   }
 
   @media screen and (max-width: 1305px) {
