@@ -21,13 +21,22 @@ $(document).ready(function () {
                 moles = 6;
                 break;
             case "medium":
-                moles = 10;
+                moles = 12;
                 break;
             case "hard":
-                moles = 16;
+                moles = 18;
                 break;
+            case "plague":
+                moles = gridSize;
+                break;
+            default:
+                moles = 6;
         }
         $("#bugcount").text(moles);
+
+        var firstLetter = diffSet[0].toUpperCase();
+        diffSet = diffSet.slice(1);
+        $("#difficulty").text(firstLetter + diffSet);
     }
 
     // Run program
