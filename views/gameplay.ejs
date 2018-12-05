@@ -12,7 +12,8 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item">
-            <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/bug.png" width="34" height="40">
+            <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/bug.png" width="34"
+                height="40">
         </a>
         <div class="navbar-item">
             Whack-A-Bug
@@ -98,6 +99,13 @@
               <img id="24" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
             </div>
           </div>
+        <ul>
+            <% for(var i=0; i<userData.length; i++) {%>
+            <li>
+                <%= userData[i] %>
+            </li>
+            <% } %>
+        </ul>
     </div>
     <div class="column is-3"></div>
 </div>
@@ -161,7 +169,6 @@
         $(this).addClass("activedifficulty");
         console.log(gameDifficulty);
     })
-
 </script>
 
 <script src="/js/game.js"></script>
