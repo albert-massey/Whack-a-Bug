@@ -1,11 +1,13 @@
 $(document).ready(function () {
 
     // Global variables
-    var moles = 5;
+    var moles = 25;
     var gridSize = 25;
     var moleIndexes = [];
     var time = 0;
     var started = false;
+
+    $("#bugcount").text(moles);
 
     // TODO
     // difficulty settings determin different grid sizes and mole counts

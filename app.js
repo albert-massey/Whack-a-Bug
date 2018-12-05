@@ -47,5 +47,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log('app now listening for requests on port ' + port + '. https://localhost:' + port);
+    console.log('app now listening for requests on port ' + port + '.');
 });
