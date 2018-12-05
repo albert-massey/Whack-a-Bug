@@ -10,38 +10,22 @@
 
 <audio src="/sound/slap-edit.mp3" id="slap"></audio>
 <!-- {{!-- Header --}} -->
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation" id="gameplay-nav">
     <div class="navbar-brand">
         <a class="navbar-item">
-            <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/bug.png" width="34"
-                height="40">
+            <img src="/img/splatlogo.png" width="40"
+                height="50">
         </a>
         <div class="navbar-item">
             Whack-A-Bug
         </div>
 
     </div>
-    <div class="navbar-end navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-            My Profile
-        </a>
-
-        <div class="navbar-dropdown">
-            <a class="navbar-item">
-                Settings
-            </a>
-            <a class="navbar-item">
-                Contact
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-                Log Out
-            </a>
-        </div>
-    </div>
-
+    <div class="navbar-end navbar-item">
+        <a class="navbar-item button is-outlined" href="/auth/logout">Log Out</a>
     </div>
 </nav>
+ 
 
 <!-- {{!-- Gameplay Box --}} -->
 <div class="columns is-mobile has-text-centered">
@@ -58,7 +42,9 @@
     <div class="column is-2 game-data" id="bugcount">6</div>
     <div class="column is-2 game-data" id="difficulty">Easy</div>
     <div class="column is-2 game-data" id="timer">00:00.00</div>
-    <div class="column is-3"></div>
+    <div class="column is-3">
+        <button class="button is-link">View leaderboards</button>
+    </div>
 </div>
 <div class="columns is-mobile">
     <div class="column is-3"></div>
