@@ -57,7 +57,10 @@
     background-color: black;
   }
   
-
+  #timer {
+    text-align: left;
+    margin-left: 5%;
+  }
 
   #gamebox-container{
     border: 2px black solid;
@@ -195,6 +198,12 @@
     .circle {
       width: 50px;
     }
+    #timer {
+      margin-left: 3%;
+    }
+    #inner {
+      width: 500px;
+    }
   }
 
   @media screen and (max-width: 705px) {
@@ -206,5 +215,8 @@
   @media screen and (max-width: 585px) {
     .circle {
       width: 24px;
+    }
+    #inner {
+      width: 380px;
     }
   }
