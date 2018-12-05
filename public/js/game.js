@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // Global variables
     var moles = 5;
-    var gridSize = 35;
+    var gridSize = 36;
     var moleIndexes = [];
     var time = 0;
     var started = false;
