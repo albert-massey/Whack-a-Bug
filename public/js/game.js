@@ -7,6 +7,7 @@ $(document).ready(function () {
     var moleIndexes = [];
     var time = 0;
     var started = false;
+    var lastClicked = -1;
 
     var difficulty = $(".activedifficulty").text().toLowerCase();
 
@@ -56,6 +57,7 @@ $(document).ready(function () {
 
     $("#gameplay-instructions-btn").on("click", function () {
         started = false;
+        lastClicked = -1;
         stop();
         reset();
         resetMoles();
@@ -65,7 +67,7 @@ $(document).ready(function () {
     function randomize() {
         for (i = 0; i < moles; i++) {
             var rand = Math.floor(Math.random() * Math.floor(gridSize));
-            if (moleIndexes.includes(rand)) {
+            if (moleIndexes.includes(rand) || rand === lastClicked) {
                 i--;
             } else {
                 moleIndexes.push(rand);
@@ -89,10 +91,11 @@ $(document).ready(function () {
     }
 
     $(document).on("click", '[data-lit="true"]', function () {
-        // console.log("mole clicked")
         slapSound.play();
+        lastClicked = parseInt($(this).attr("id"));
         moles--;
         $("#bugcount").text(moles);
+
         if (moles === 0) {
             $(this).attr("data-lit", "false").css("filter", "hue-rotate(120deg) brightness(1.5) grayscale(30%)");
             stop();
