@@ -21,9 +21,9 @@
 
   #footer{
     font-size: 12px;
-    border: 2px solid #252839;
+    border-top: 0.5px solid #677077;
     text-align: center;
-    background-color: #b5b5b7;
+    background-color: #F8F8F8;
     color: #677077;
     height: 40px;
     position: relative;
@@ -31,9 +31,10 @@
   
   #playbtn {
     font-weight: bold;
+    margin-top: 20px;
   }
   #landing-page-container {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     text-align: center;
     width: inherit;
   }
@@ -66,6 +67,7 @@
     border: 2px black solid;
     padding-left: 20px;
     padding-right: 20px;
+    margin-bottom: 20px;
   }
   
   .homepage-buttons{
