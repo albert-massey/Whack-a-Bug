@@ -41,13 +41,24 @@ $(document).ready(function () {
 
     // Run program
     //-------------------------------------------------------
-    $("#start-game-btn").on("click", function () {
+    function run() {
         if (!started) {
             setDifficulty(difficulty);
             placeMoles();
             start();
             started = true;
         }
+    }
+
+    $("#start-game-btn").on("click", function () {
+        run();
+    });
+
+    $("#gameplay-instructions-btn").on("click", function () {
+        started = false;
+        stop();
+        reset();
+        resetMoles();
     });
     //-------------------------------------------------------
 
@@ -75,7 +86,6 @@ $(document).ready(function () {
             $("#" + moleIndexes[i]).attr("data-lit", "false").css("filter", "hue-rotate(120deg) brightness(1.5) grayscale(30%)");
         }
         moleIndexes = [];
-        placeMoles();
     }
 
     $(document).on("click", '[data-lit="true"]', function () {
@@ -90,6 +100,7 @@ $(document).ready(function () {
             console.log("WIN");
         } else {
             resetMoles();
+            placeMoles();
         }
     });
 
@@ -97,9 +108,6 @@ $(document).ready(function () {
         time += 100;
         console.log("TIME PENALTY");
     });
-
-    // TODO
-    // clicking unlit moles results in time penalty
 
     //-----------------------------------------------------------------------------
     // Stopwatch code
