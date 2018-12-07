@@ -98,9 +98,6 @@ $(document).ready(function () {
         console.log("TIME PENALTY");
     });
 
-    // TODO
-    // clicking unlit moles results in time penalty
-
     //-----------------------------------------------------------------------------
     // Stopwatch code
     //-----------------------------------------------------------------------------
