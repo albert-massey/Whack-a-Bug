@@ -13,8 +13,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation" id="gameplay-nav">
     <div class="navbar-brand">
         <a class="navbar-item" href="/profile">
-            <img src="/img/splatlogo.png" width="40"
-                height="50">
+            <img src="/img/splatlogo.png" width="40" height="50">
         </a>
         <div class="navbar-item">
             Whack-A-Bug
@@ -25,10 +24,10 @@
         <a class="navbar-item button is-outlined" href="/auth/logout">Log Out</a>
     </div>
 </nav>
- 
+
 
 <!-- {{!-- Gameplay Box --}} -->
-<div class="columns is-mobile has-text-centered">
+<div class="columns is-mobile has-text-centered" id="game-data-box">
     <div class="column is-3"></div>
     <div class="column is-2 game-data-header">BUGS LEFT</div>
     <div class="column is-2 game-data-header">DIFFICULTY</div>
@@ -104,16 +103,16 @@
 </div>
 <!-- {{!-- Footer --}} -->
 <div class="columns">
-        <div class="column is-12 content has-text-centered" id="footer">
-            <p>
-                <strong>Whack-A-Bug</strong><a href="https://github.com/albertcoder/whack-a-bug"> source code</a>.
-                The source code is
-                licensed
-                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-            </p>
-        </div>
+    <div class="column is-12 content has-text-centered" id="footer">
+        <p>
+            <strong>Whack-A-Bug</strong><a href="https://github.com/albertcoder/whack-a-bug"> source code</a>.
+            The source code is
+            licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
     </div>
+</div>
 
 <!-- {{!-- Instructions Modal --}} -->
 <div class="instructionsmodal">
@@ -131,7 +130,7 @@
                         <span class="button btndifficulty" id="easy">Easy</span>
                         <span class="button btndifficulty" id="medium">Medium</span>
                         <span class="button btndifficulty" id="hard">Hard</span>
-                        <span class="button btndifficulty" id="plague">Plague</span>
+                        <span class="button btndifficulty is-inverted" id="plague">Plague</span>
                     </div>
 
                     <p>2. Click on the bugs (red circles) to squish them.</p>
@@ -147,24 +146,49 @@
     </div>
 </div>
 
+<!-- Postgame Modal -->
+<div class="postgamemodal">
+    <div class="modal-background"></div>
+    <div id="outer">
+        <div id="middle">
+            <div id="inner" class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">ALL BUGS SMASHED!</p>
+                </header>
+                <section class="modal-card-body has-text-centered">
+                    <p>Your time was: </p>
+                    <div id="gameinstancescore"></div>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success" id="post-game-btn">CONTINUE</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/game.js"></script>
+<!-- <script type="text/javascript" src="../public/js/game.js">
+</script> -->
+
 
 <script type="text/javascript">
     var gameDifficulty;
-    // Get the modal
-    var modal = $(".instructionsmodal");
+    // Get the instructions modal
+    var instructionsModal = $(".instructionsmodal");
 
     // Get the button that opens the modal
     var btn = $("#modalbtn");
 
     // show instructions modal on click of btn
     $("#gameplay-instructions-btn").on("click", function () {
-        modal.addClass("active");
+        instructionsModal.addClass("active");
     })
     // Close modal btn
     $("#start-game-btn").on("click", function () {
-        modal.removeClass("active");
-        modal.addClass("hiddenmodal");
+        instructionsModal.removeClass("active");
+        instructionsModal.addClass("hiddenmodal");
     })
 
     // Close modal when window clicked
@@ -182,8 +206,35 @@
     })
 
     $("#easy").addClass("activedifficulty");
+
+    $(document).on("click", '[data-lit="true"]', function () {
+        var numBugs = $("#bugcount").text()
+
+        if (numBugs == "1" || numBugs == "0") {
+            console.log('test');
+            // Get the instructions modal
+            var postGameModal = $(".postgamemodal");
+            // add gametime to modal
+            var gameTime = $("#timer").text()
+            // add time from gameinstance to modal 
+            $("#gameinstancescore").append(gameTime)
+            console.log(gameTime);
+
+            postGameModal.removeClass("postgamemodal");
+                postGameModal.addClass("instructionsmodal");
+            // close post game modal click event
+            $("#post-game-btn").on("click", function () {
+                postGameModal.removeClass("instructionsmodal");
+                postGameModal.addClass("postgamemodal");
+            })
+        }
+    })
+
+
+
+
 </script>
 
-<script src="/js/game.js"></script>
+
 
 </html>
