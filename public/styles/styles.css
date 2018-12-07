@@ -44,7 +44,19 @@
     text-align: center;
     font-size: 18px;
   }
+
+  #game-data-box{
+    margin-top: 2px;
+  }
+
+  .game-data-header {
+    font-size: 24px;
+  }
   
+  .game-data{
+    font-size: 20px;
+  }
+
   .hero-body {
     display: block;
     margin: auto;
@@ -85,6 +97,11 @@
     visibility: visible;
   }
 
+
+  .postgamemodal{
+    visibility: hidden;
+  }
+
   /* ---------------------------- */
   #outer {
     display: table;
@@ -118,13 +135,13 @@
   
   /* active btn */
   .activedifficulty{
-    background-color: lightblue;
+    background-color: lightgreen;
   }
   
   .active{
     visibility: visible;
   }
-  
+
   #customBtn {
     display: inline-block;
     background: white;
