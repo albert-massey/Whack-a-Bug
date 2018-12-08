@@ -1,12 +1,12 @@
 # Whack-A-Bug
 
-###About Whack-A-Bug:
+### About Whack-A-Bug:
 
 Whack-A-Bug is a full-stack web-based game built for developers to release the inevitable stress that comes with being a developer.
 
 ---------------------------------
 
-###How to use Whack-A-Bug:
+### How to use Whack-A-Bug:
 
 Goal of the game: Smash all of the "bugs" as quickly as possible
 
@@ -24,16 +24,16 @@ Try to improve your score and compete with other users of the platform!
 
 ---------------------------------
 
-###Built with:
+### Built with:
 
-####Front-end
+#### Front-end
 
 Bulma.io: https://bulma.io/
 
 jQuery: https://jquery.com/
 
 
-####Back-end
+#### Back-end
 
 Express: https://expressjs.com/
 
@@ -46,7 +46,7 @@ MongoDB: https://www.mongodb.com/
 
 ---------------------------------
 
-Contributers:
+### Contributers:
 
 Albert Snowlove: https://github.com/albertcoder
 
