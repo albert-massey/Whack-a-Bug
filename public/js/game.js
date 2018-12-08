@@ -6,8 +6,8 @@ $(document).ready(function () {
     var gridSize = 36;
     var moleIndexes = [];
     var time = 0;
-    var started = false;
     var lastClicked = -1;
+    var intervalId;
 
     var difficulty = $(".activedifficulty").text().toLowerCase();
 
@@ -43,12 +43,29 @@ $(document).ready(function () {
     // Run program
     //-------------------------------------------------------
     function run() {
-        if (!started) {
-            setDifficulty(difficulty);
-            placeMoles();
-            start();
-            started = true;
-        }
+        setDifficulty(difficulty);
+        placeMoles();
+        start();
+    }
+
+    function endGame() {
+        lastClicked = -1;
+        stop();
+        reset();
+        resetMoles();
+    }
+
+    function gameOver() {
+        endGame();
+        var timesUpModal = $(".timesupmodal")
+
+        timesUpModal.removeClass("timesupmodal");
+        timesUpModal.addClass("instructionsmodal");
+
+        $("#game-over-btn").on("click", function () {
+            timesUpModal.removeClass("instructionsmodal");
+            timesUpModal.addClass("timesupmodal");
+        })
     }
 
     $("#start-game-btn").on("click", function () {
@@ -56,11 +73,7 @@ $(document).ready(function () {
     });
 
     $("#gameplay-instructions-btn").on("click", function () {
-        started = false;
-        lastClicked = -1;
-        stop();
-        reset();
-        resetMoles();
+        endGame();
     });
     //-------------------------------------------------------
 
@@ -147,6 +160,9 @@ $(document).ready(function () {
 
     function count() {
         time++;
+        if (time >= 6000) {
+            gameOver();
+        }
         var converted = timeConverter(time);
         $("#timer").text(converted);
     }
