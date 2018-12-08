@@ -118,6 +118,7 @@ $(document).ready(function () {
             var newScoreRecord = {
                 googleId: "",
                 thumbnail: "",
+                postedBy: null,
                 difficulty: difficulty,
                 score: decTime
 

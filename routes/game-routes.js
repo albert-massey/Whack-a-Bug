@@ -17,10 +17,13 @@ router.post("/score", jsonParser, function (req, res) {
   var newScore = req.body;
   newScore.googleId = req.user.googleId;
   newScore.thumbnail = req.user.thumbnail;
-  console.log("I am line 24 game-routes\n", newScore);
+  newScore.postedBy = req.user.username;
+
+  // console.log("I am line 24 game-routes\n", req.user);
   var latest = new Score({
     googleId: newScore.googleId,
     thumbnail: newScore.thumbnail,
+    postedBy: newScore.postedBy,
     difficulty: newScore.difficulty,
     score: newScore.score
   });
