@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -49,7 +50,7 @@
                             </thead>
                             <tbody>
                                 <!-- <table class="table"> -->
-                                <% for(var i=0; i<userData.length; i++) {%>
+                                <% for(var i=0; i<userData.length+1; i++) {%>
                                 <tr>
                                     <td>
                                         <%= userData[1][i].difficulty %>
@@ -75,10 +76,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <% for(var i=0; i<userData.length; i++) {%>
+                                <% for(var i=0; i<userData.length+1; i++) {%>
                                 <tr>
                                     <td>
-                                        <%= userData[0][i].googleId %>
+                                        <%= userData[0][i].postedBy %>
                                     </td>
                                     <td>
                                         <%= userData[0][i].difficulty %>
