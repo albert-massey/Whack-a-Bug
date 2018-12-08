@@ -7,6 +7,7 @@ $(document).ready(function () {
     var moleIndexes = [];
     var time = 0;
     var lastClicked = -1;
+    var intervalId;
 
     var difficulty = $(".activedifficulty").text().toLowerCase();
 
