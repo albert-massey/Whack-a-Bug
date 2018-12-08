@@ -8,7 +8,7 @@ const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const app = express();
-var PORT = process.env.PORT || 3000;
+const port = 3000;
 
 
 app.use(express.static(__dirname + '/public'));
@@ -50,6 +50,6 @@ app.get('/', (req, res) => {
     res.render('home', { user: req.user });
 });
 
-app.listen(PORT, () => {
-    console.log('app now listening for requests on port ' + PORT + '.');
+app.listen(port, () => {
+    console.log('app now listening for requests on port ' + port + '.');
 });
