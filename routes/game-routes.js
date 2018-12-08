@@ -27,7 +27,7 @@ router.post("/score", jsonParser, function (req, res) {
 
   Score.create(latest)
     .then(score => {
-      console.log("Create a score record!");
+      console.log("Created a score record!");
       res.status(201).json(score);
     })
     .catch(err => {

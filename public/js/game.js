@@ -104,7 +104,7 @@ $(document).ready(function () {
             var newScoreRecord = {
                 googleId: "22",
                 thumbnail: "22",
-                difficulty: "easy",
+                difficulty: difficulty,
                 score: $("#timer").text()
 
             };
@@ -115,7 +115,6 @@ $(document).ready(function () {
               // log the data we found
               console.log("I am the looped "+data);
               // tell the user we're adding a character with an alert window
-              alert("Adding new score...");
             });
         } else {
             resetMoles();
