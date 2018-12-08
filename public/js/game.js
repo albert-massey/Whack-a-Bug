@@ -6,7 +6,6 @@ $(document).ready(function () {
     var gridSize = 36;
     var moleIndexes = [];
     var time = 0;
-    var started = false;
     var lastClicked = -1;
 
     var difficulty = $(".activedifficulty").text().toLowerCase();
@@ -43,12 +42,9 @@ $(document).ready(function () {
     // Run program
     //-------------------------------------------------------
     function run() {
-        if (!started) {
-            setDifficulty(difficulty);
-            placeMoles();
-            start();
-            started = true;
-        }
+        setDifficulty(difficulty);
+        placeMoles();
+        start();
     }
 
     $("#start-game-btn").on("click", function () {
@@ -56,7 +52,6 @@ $(document).ready(function () {
     });
 
     $("#gameplay-instructions-btn").on("click", function () {
-        started = false;
         lastClicked = -1;
         stop();
         reset();
