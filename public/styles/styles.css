@@ -1,21 +1,40 @@
 .list-group-item {
     line-height: 2.5;
   }
+
+  .circle {
+    width: 100px;
+    filter: hue-rotate(120deg) brightness(1.5) grayscale(30%);
+    /* filter: hue-rotate(120deg); 240deg = blue, 120deg = green */
+  }
   
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
   
-  .footer{
-    border: 2px solid black;
+  .col img {
+    margin-top: 8px;
+    vertical-align: middle;
+  }
+
+  #footer{
+    font-size: 12px;
+    border-top: 0.5px solid #677077;
     text-align: center;
-    background-color: #f2b632;
+    background-color: #F8F8F8;
     color: #677077;
-    height: 5px;
+    height: 40px;
+    position: relative;
   }
   
   #playbtn {
     font-weight: bold;
+    margin-top: 20px;
   }
   #landing-page-container {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     text-align: center;
     width: inherit;
   }
@@ -25,15 +44,42 @@
     text-align: center;
     font-size: 18px;
   }
-  
-  .hero-body {
-    background-color: #252839;
+
+  #game-data-box{
+    margin-top: 2px;
+  }
+
+  .game-data-header {
+    font-size: 24px;
   }
   
+  .game-data{
+    font-size: 20px;
+  }
+
+  .hero-body {
+    display: block;
+    margin: auto;
+    background: no-repeat;
+    background-image: url("/img/clipart333082.png");
+    background-size: 800px 600px;
+    background-position: center;
+  }
+
+  .hero.is-info {
+    background-color: black;
+  }
+  
+  #timer {
+    text-align: left;
+    margin-left: 5%;
+  }
+
   #gamebox-container{
     border: 2px black solid;
     padding-left: 20px;
     padding-right: 20px;
+    margin-bottom: 20px;
   }
   
   .homepage-buttons{
@@ -50,19 +96,60 @@
   .instructionsmodal{
     visibility: visible;
   }
+
+
+  .postgamemodal{
+    visibility: hidden;
+  }
+
+  .timesupmodal{
+    visibility: hidden;
+  }
+
+  #too-slow {
+    color: red;
+  }
+
+  /* ---------------------------- */
+  #outer {
+    display: table;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  #middle {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  #inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 705px;
+  }
+  /* ---------------------------- */
+
+  .modal-background {
+    background-size: 100% 100vh;
+    position: fixed;
+  }
+
   .hiddenmodal{
     visibility: hidden;
   }
   
   /* active btn */
   .activedifficulty{
-    background-color: lightblue;
+    background-color: lightgreen;
   }
   
   .active{
     visibility: visible;
   }
-  
+
   #customBtn {
     display: inline-block;
     background: white;
@@ -100,4 +187,63 @@
 
   .notification{
     padding: 1.25rem 1.5rem .5rem 1.5rem;
+  }
+
+  .title {
+    font-size: 80px;
+    mix-blend-mode: difference;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  .subtitle {
+    mix-blend-mode: difference;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  .login-btn {
+    width: 200px;
+  }
+
+  #gameplay-nav{
+    border-bottom: 0.5px solid #677077;
+    background-color: #F8F8F8;
+  }
+
+  @media screen and (max-width: 1305px) {
+    .circle {
+      width: 85px;
+    }
+  }
+  
+  @media screen and (max-width: 1125px) {
+    .circle {
+      width: 70px;
+    }
+  }
+
+  @media screen and (max-width: 945px) {
+    .circle {
+      width: 50px;
+    }
+    #timer {
+      margin-left: 3%;
+    }
+    #inner {
+      width: 500px;
+    }
+  }
+
+  @media screen and (max-width: 705px) {
+    .circle {
+      width: 40px;
+    }
+  }
+
+  @media screen and (max-width: 585px) {
+    .circle {
+      width: 24px;
+    }
+    #inner {
+      width: 380px;
+    }
   }
