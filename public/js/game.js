@@ -48,15 +48,32 @@ $(document).ready(function () {
         start();
     }
 
+    function endGame() {
+        lastClicked = -1;
+        stop();
+        reset();
+        resetMoles();
+    }
+
+    function gameOver() {
+        endGame();
+        var timesUpModal = $(".timesupmodal")
+
+        timesUpModal.removeClass("timesupmodal");
+        timesUpModal.addClass("instructionsmodal");
+
+        $("#game-over-btn").on("click", function () {
+            timesUpModal.removeClass("instructionsmodal");
+            timesUpModal.addClass("timesupmodal");
+        })
+    }
+
     $("#start-game-btn").on("click", function () {
         run();
     });
 
     $("#gameplay-instructions-btn").on("click", function () {
-        lastClicked = -1;
-        stop();
-        reset();
-        resetMoles();
+        endGame();
     });
     //-------------------------------------------------------
 
@@ -128,6 +145,9 @@ $(document).ready(function () {
 
     function count() {
         time++;
+        if (time >= 6000) {
+            gameOver();
+        }
         var converted = timeConverter(time);
         $("#timer").text(converted);
     }

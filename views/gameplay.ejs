@@ -167,6 +167,26 @@
     </div>
 </div>
 
+<!-- Time's Up Modal -->
+<div class="timesupmodal">
+    <div class="modal-background"></div>
+    <div id="outer">
+        <div id="middle">
+            <div id="inner" class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title" id="too-slow">TOO SLOW!</p>
+                </header>
+                <section class="modal-card-body has-text-centered">
+                    <p>Smash the bugs in under a minute!</p>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success" id="game-over-btn">CONTINUE</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/game.js"></script>
 <!-- <script type="text/javascript" src="../public/js/game.js">
@@ -222,7 +242,7 @@
             console.log(gameTime);
 
             postGameModal.removeClass("postgamemodal");
-                postGameModal.addClass("instructionsmodal");
+            postGameModal.addClass("instructionsmodal");
             // close post game modal click event
             $("#post-game-btn").on("click", function () {
                 postGameModal.removeClass("instructionsmodal");
