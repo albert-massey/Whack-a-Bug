@@ -35,7 +35,6 @@
                 </div>
             </div>
 
-
             <!-- {{!-- Leaderboards --}} -->
             <div class="columns is-mobile is-centered" id="landing-page-container">
                 <div class="column leaderboard is-narrow">
@@ -49,18 +48,17 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <!-- <table class="table"> -->
+                                <% for(var i=0; i<userData.length; i++) {%>
                                 <tr>
-                                    <td>Easy</td>
-                                    <td>10.5</td>
+                                    <td>
+                                        <%= userData[1][i].difficulty %>
+                                    </td>
+                                    <td>
+                                        <%= userData[1][i].score %>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>Medium</td>
-                                    <td>20.2</td>
-                                </tr>
-                                <tr>
-                                    <td>Hard</td>
-                                    <td>45.2</td>
-                                </tr>
+                                <% } %>
                             </tbody>
                         </table>
                     </div>
@@ -77,21 +75,19 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <% for(var i=0; i<userData.length; i++) {%>
                                 <tr>
-                                    <td>Barack Obama</td>
-                                    <td>Easy</td>
-                                    <td>12.4</td>
+                                    <td>
+                                        <%= userData[0][i].googleId %>
+                                    </td>
+                                    <td>
+                                        <%= userData[0][i].difficulty %>
+                                    </td>
+                                    <td>
+                                        <%= userData[0][i].score %>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>George Lucas</td>
-                                    <td>Easy</td>
-                                    <td>19.4</td>
-                                </tr>
-                                <tr>
-                                    <td>Prince</td>
-                                    <td>Easy</td>
-                                    <td>52.2</td>
-                                </tr>
+                                <% } %>
                             </tbody>
                         </table>
                     </div>

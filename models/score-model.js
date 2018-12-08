@@ -5,7 +5,7 @@ const scoreSchema = new Schema({
     googleId: String,
     thumbnail: String,
     difficulty: String,
-    score: Number
+    score: String
 });
 
 const Score = mongoose.model('scoreModel', scoreSchema);

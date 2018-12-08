@@ -101,6 +101,21 @@ $(document).ready(function () {
             stop();
             console.log("Time: " + $("#timer").text());
             console.log("WIN");
+            var newScoreRecord = {
+                googleId: "22",
+                thumbnail: "22",
+                difficulty: difficulty,
+                score: $("#timer").text()
+
+            };
+            // console.log(newScoreRecord);
+            $.post("/game/score", newScoreRecord)
+            // on success, run this callback
+            .then(function(data) {
+              // log the data we found
+              console.log("I am the looped "+data);
+              // tell the user we're adding a character with an alert window
+            });
         } else {
             resetMoles();
             placeMoles();
