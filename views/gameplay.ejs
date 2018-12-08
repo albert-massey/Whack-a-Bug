@@ -157,7 +157,7 @@
                 </header>
                 <section class="modal-card-body has-text-centered">
                     <p>Your time was: </p>
-                    <div id="gameinstancescore"></div>
+                    <p id="gameinstancescore"></p>
                 </section>
                 <footer class="modal-card-foot">
                     <button class="button is-success" id="post-game-btn">CONTINUE</button>
@@ -184,6 +184,7 @@
     // show instructions modal on click of btn
     $("#gameplay-instructions-btn").on("click", function () {
         instructionsModal.addClass("active");
+
     })
     // Close modal btn
     $("#start-game-btn").on("click", function () {
@@ -217,7 +218,7 @@
             // add gametime to modal
             var gameTime = $("#timer").text()
             // add time from gameinstance to modal 
-            $("#gameinstancescore").append(gameTime)
+            $("#gameinstancescore").text(gameTime);
             console.log(gameTime);
 
             postGameModal.removeClass("postgamemodal");
@@ -226,15 +227,11 @@
             $("#post-game-btn").on("click", function () {
                 postGameModal.removeClass("instructionsmodal");
                 postGameModal.addClass("postgamemodal");
+                $("#gameinstancescore").text("");
             })
         }
     })
 
-
-
-
 </script>
-
-
 
 </html>
