@@ -2,17 +2,17 @@
 
 ### About Whack-A-Bug: ###
 
-Whack-A-Bug is a full-stack web-based game built for developers to release the inevitable stress that comes with being a developer.
+Whack-A-Bug is a full-stack game built for developers to release the inevitable stress that comes with being a developer. The goal of the game is to smash all of the "bugs" in the game box as quickly as possible.
+
+This app is deployed to Heroku at: https://whackabug.herokuapp.com/
 
 ---------------------------------
 
 ### How to use Whack-A-Bug: ###
 
-Goal of the game: Smash all of the "bugs" as quickly as possible
-
 Log in using your Google account for authentication (or create a Google account if you do not have one).
 
-You will be taken to your profile page, where you can view your Personal leaderboard as well as the Global Leaderboard.
+You will be taken to your profile page, where you can view your Personal Bests as well as the Global Leaderboard.
 
 Click "Play New Game" and be taken to the gameplay page.
 
@@ -42,6 +42,8 @@ Node.js: https://nodejs.org/en/
 Passport.js: http://www.passportjs.org/
 
 MongoDB: https://www.mongodb.com/
+
+Mongoose NPM: https://www.npmjs.com/package/mongoose
 
 
 ---------------------------------
