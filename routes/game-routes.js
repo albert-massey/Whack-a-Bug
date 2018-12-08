@@ -1,32 +1,38 @@
-// var db = require("../models");
 const router = require('express').Router();
 const passport = require('passport');
 const Score = require('../models/score-model');
 const User = require('../models/user-model');
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 
 
 router.get('/gameplay', (req, res) => {
-  new Score({
-    googleId: "111",
-    thumbnail: "111",
-    difficulty: "easy",
-    score: 100
-  }).save().then((newScore) => {
-    console.log("created a new score record in scoreModel: ", newScore);
+  res.render('gameplay', {
+    user: req.user,
   });
-  User.find({ }, function (err, usersReturned) {
-    if (err) return handleError(err);
-    // 'athletes' contains the list of athletes that match the criteria.
-  }).then(function (data) {
-    // use doc
-    console.log("This is data received"+data);
-    // console.log(usersReturned);
-    res.render('gameplay', {
-      user: req.user,
-      userData: data
+});
+
+router.post("/score", jsonParser, function (req, res) {
+  // Take the request...
+  var newScore = req.body;
+  newScore.googleId = req.user.googleId;
+  newScore.thumbnail = req.user.thumbnail;
+  console.log("I am line 24 game-routes\n", newScore);
+  var latest = new Score({
+    googleId: newScore.googleId,
+    thumbnail: newScore.thumbnail,
+    difficulty: newScore.difficulty,
+    score: newScore.score
+  });
+
+  Score.create(latest)
+    .then(score => {
+      console.log("Create a score record!");
+      res.status(201).json(score);
+    })
+    .catch(err => {
+      res.status(400).json(err);
     });
-  });
-  
 
 });
 

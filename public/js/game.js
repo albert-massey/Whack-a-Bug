@@ -71,8 +71,24 @@ $(document).ready(function () {
         if (moles === 0) {
             $(this).attr("data-lit", "false").css("filter", "hue-rotate(120deg) brightness(1.5) grayscale(30%)");
             stop();
-            console.log("Time: " + $("#timer").text())
+            console.log("Time: " + $("#timer").text());
             console.log("WIN");
+            var newScoreRecord = {
+                googleId: "22",
+                thumbnail: "22",
+                difficulty: "easy",
+                score: $("#timer").text()
+
+            };
+            // console.log(newScoreRecord);
+            $.post("/game/score", newScoreRecord)
+            // on success, run this callback
+            .then(function(data) {
+              // log the data we found
+              console.log("I am the looped "+data);
+              // tell the user we're adding a character with an alert window
+              alert("Adding new score...");
+            });
         } else {
             resetMoles();
         }
