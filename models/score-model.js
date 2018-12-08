@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const scoreSchema = new Schema({
     googleId: String,
     thumbnail: String,
+    postedBy: String,
     difficulty: String,
     score: Number
 });
