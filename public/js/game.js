@@ -1,9 +1,8 @@
-var moles;
-
 $(document).ready(function () {
 
     // Global variables
     var slapSound = document.getElementById("slap");
+    var moles;
     var gridSize = 36;
     var moleIndexes = [];
     var time = 0;
