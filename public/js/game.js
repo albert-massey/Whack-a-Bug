@@ -101,13 +101,14 @@ $(document).ready(function () {
             stop();
             console.log("Time: " + $("#timer").text());
             console.log("WIN");
+            var decTime = parseFloat(time / 100);
             var newScoreRecord = {
-                googleId: "22",
-                thumbnail: "22",
+                googleId: "",
+                thumbnail: "",
                 difficulty: difficulty,
-                score: $("#timer").text()
+                score: decTime
 
-            };
+            };  
             // console.log(newScoreRecord);
             $.post("/game/score", newScoreRecord)
             // on success, run this callback

@@ -25,7 +25,7 @@ router.get('/', authCheck, (req, res) => {
         return Score.find({}, function (err, usersReturned) {
             if (err) return handleError(err);
         }).sort({
-            score: -1
+            score: 1
         }).limit(3).then(function(data) {
             // console.log(data);
             return data;
@@ -37,7 +37,7 @@ router.get('/', authCheck, (req, res) => {
         }, function (err, usersReturned) {
             if (err) return handleError(err);
         }).sort({
-            score: -1
+            score: 1
         }).limit(3).then(function(data) {
             return data;
         });
@@ -45,7 +45,7 @@ router.get('/', authCheck, (req, res) => {
 
     // fetchAllScores();
     Promise.all([fetchAllScores(), fetchLoggedInUserScores(), findUserfromGoogleId(googleIdee)]).then(function (data) {
-        // console.log(data);
+        console.log("I am fetchLogged \n",data);
         res.render('profile', {
             user: req.user,
             userData: data
