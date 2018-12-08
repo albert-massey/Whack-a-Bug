@@ -8,42 +8,26 @@
     <title>Gameplay</title>
 </head>
 
+<audio src="/sound/slap-edit.mp3" id="slap"></audio>
 <!-- {{!-- Header --}} -->
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation" id="gameplay-nav">
     <div class="navbar-brand">
-        <a class="navbar-item">
-            <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/bug.png" width="34"
-                height="40">
+        <a class="navbar-item" href="/profile">
+            <img src="/img/splatlogo.png" width="40" height="50">
         </a>
         <div class="navbar-item">
             Whack-A-Bug
         </div>
 
     </div>
-    <div class="navbar-end navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-            My Profile
-        </a>
-
-        <div class="navbar-dropdown">
-            <a class="navbar-item">
-                Settings
-            </a>
-            <a class="navbar-item">
-                Contact
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-                Log Out
-            </a>
-        </div>
-    </div>
-
+    <div class="navbar-end navbar-item">
+        <a class="navbar-item button is-outlined" href="/auth/logout">Log Out</a>
     </div>
 </nav>
 
+
 <!-- {{!-- Gameplay Box --}} -->
-<div class="columns is-mobile has-text-centered">
+<div class="columns is-mobile has-text-centered" id="game-data-box">
     <div class="column is-3"></div>
     <div class="column is-2 game-data-header">BUGS LEFT</div>
     <div class="column is-2 game-data-header">DIFFICULTY</div>
@@ -52,118 +36,206 @@
 </div>
 <div class="columns is-mobile has-text-centered">
     <div class="column is-3">
-        <button class="button is-primary" id="gameplay-instructions-btn">Gameplay Instructions</button>
+        <button class="button is-primary" id="gameplay-instructions-btn">Play Again</button>
     </div>
-    <div class="column is-2 game-data" id="bugcount">5</div>
+    <div class="column is-2 game-data" id="bugcount">6</div>
     <div class="column is-2 game-data" id="difficulty">Easy</div>
     <div class="column is-2 game-data" id="timer">00:00.00</div>
-    <div class="column is-3"></div>
+    <div class="column is-3">
+        <button class="button is-link">View leaderboards</button>
+    </div>
 </div>
 <div class="columns is-mobile">
     <div class="column is-3"></div>
     <div class="column has-text-centered is-6" id="gamebox-container">
         <div id="row">
             <div class="col">
-              <img id="0" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="1" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="2" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="3" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="4" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+                <img id="0" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="1" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="2" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="3" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="4" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="5" class="circle" data-lit="false" src="/img/red_circle.png">
             </div>
             <div class="col">
-              <img id="5" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="6" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="7" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="8" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="9" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+                <img id="6" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="7" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="8" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="9" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="10" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="11" class="circle" data-lit="false" src="/img/red_circle.png">
             </div>
             <div class="col">
-              <img id="10" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="11" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="12" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="13" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="14" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+                <img id="12" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="13" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="14" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="15" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="16" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="17" class="circle" data-lit="false" src="/img/red_circle.png">
             </div>
             <div class="col">
-              <img id="15" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="16" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="17" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="18" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="19" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+                <img id="18" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="19" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="20" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="21" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="22" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="23" class="circle" data-lit="false" src="/img/red_circle.png">
             </div>
             <div class="col">
-              <img id="20" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="21" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="22" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="23" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
-              <img id="24" class="circle" data-lit="false" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png">
+                <img id="24" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="25" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="26" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="27" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="28" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="29" class="circle" data-lit="false" src="/img/red_circle.png">
             </div>
+            <div class="col">
+                <img id="30" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="31" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="32" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="33" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="34" class="circle" data-lit="false" src="/img/red_circle.png">
+                <img id="35" class="circle" data-lit="false" src="/img/red_circle.png">
+            </div>
+<<<<<<< HEAD
           </div>
+=======
+        </div>
+>>>>>>> development
     </div>
     <div class="column is-3"></div>
+</div>
+<!-- {{!-- Footer --}} -->
+<div class="columns">
+    <div class="column is-12 content has-text-centered" id="footer">
+        <p>
+            <strong>Whack-A-Bug</strong><a href="https://github.com/albertcoder/whack-a-bug"> source code</a>.
+            The source code is
+            licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
+    </div>
 </div>
 
 <!-- {{!-- Instructions Modal --}} -->
 <div class="instructionsmodal">
     <div class="modal-background"></div>
-    <div class="modal-card">
-        <header class="modal-card-head">
-            <p class="modal-card-title">HOW TO PLAY</p>
-            <button class="delete" aria-label="close" id="closemodalbtn"></button>
-        </header>
-        <section class="modal-card-body">
-            <p>1. Select your difficulty</p>
-            <div class="buttons has-addons">
-                <span class="button btndifficulty" id="easy">Easy</span>
-                <span class="button btndifficulty" id="medium">Medium</span>
-                <span class="button btndifficulty" id="hard">Hard</span>
-            </div>
+    <div id="outer">
+        <div id="middle">
+            <div id="inner" class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">HOW TO PLAY</p>
+                    <!-- <button class="delete" aria-label="close" id="closemodalbtn"></button> -->
+                </header>
+                <section class="modal-card-body">
+                    <p>1. Select your difficulty</p>
+                    <div class="buttons has-addons">
+                        <span class="button btndifficulty" id="easy">Easy</span>
+                        <span class="button btndifficulty" id="medium">Medium</span>
+                        <span class="button btndifficulty" id="hard">Hard</span>
+                        <span class="button btndifficulty is-inverted" id="plague">Plague</span>
+                    </div>
 
-            <p>2. Click on the bugs (green circles) as quickly as you can.</p>
-            <p>3. When you click on the first bug, the remaining bugs will randomly move to a new position.</p>
-            <p>4. Go as fast as you can!</p>
-        </section>
-        <footer class="modal-card-foot">
-            <button class="button is-success" id="start-game-btn">I'M READY TO SMASH SOME BUGS</button>
-        </footer>
+                    <p>2. Click on the bugs (red circles) to squish them.</p>
+                    <p>3. When you click on a bug, the remaining bugs will randomly move to new positions.</p>
+                    <p>4. Clicking green circles will result in a one second time penalty!</p>
+                    <p>5. Squish the bugs as fast as you can!</p>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success" id="start-game-btn">I'M READY TO SMASH SOME BUGS</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Postgame Modal -->
+<div class="postgamemodal">
+    <div class="modal-background"></div>
+    <div id="outer">
+        <div id="middle">
+            <div id="inner" class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">ALL BUGS SMASHED!</p>
+                </header>
+                <section class="modal-card-body has-text-centered">
+                    <p>Your time was: </p>
+                    <p id="gameinstancescore"></p>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success" id="post-game-btn">CONTINUE</button>
+                </footer>
+            </div>
+        </div>
     </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/game.js"></script>
+<!-- <script type="text/javascript" src="../public/js/game.js">
+</script> -->
+
 
 <script type="text/javascript">
     var gameDifficulty;
-    // Get the modal
-    var modal = $(".instructionsmodal");
+    // Get the instructions modal
+    var instructionsModal = $(".instructionsmodal");
 
     // Get the button that opens the modal
     var btn = $("#modalbtn");
 
     // show instructions modal on click of btn
     $("#gameplay-instructions-btn").on("click", function () {
-        modal.addClass("active");
+        instructionsModal.addClass("active");
+
     })
     // Close modal btn
-    $("#closemodalbtn").on("click", function () {
-        modal.removeClass("active");
-        modal.addClass("hiddenmodal");
+    $("#start-game-btn").on("click", function () {
+        instructionsModal.removeClass("active");
+        instructionsModal.addClass("hiddenmodal");
     })
 
     // Close modal when window clicked
-    $(".modal-background").on("click", function () {
-        modal.removeClass("active");
-        modal.addClass("hiddenmodal");
-    })
+    // $(".modal-background").on("click", function () {
+    //     modal.removeClass("active");
+    //     modal.addClass("hiddenmodal");
+    // })
 
     // difficulty btn toggle
     $(".btndifficulty").on("click", function () {
         gameDifficulty = $(this).attr("id");
         $(".btndifficulty").removeClass("activedifficulty")
         $(this).addClass("activedifficulty");
-        console.log(gameDifficulty);
+        // console.log(gameDifficulty);
     })
-</script>
 
-<script src="/js/game.js"></script>
+    $("#easy").addClass("activedifficulty");
+
+    $(document).on("click", '[data-lit="true"]', function () {
+        var numBugs = $("#bugcount").text()
+
+        if (numBugs == "1" || numBugs == "0") {
+            console.log('test');
+            // Get the instructions modal
+            var postGameModal = $(".postgamemodal");
+            // add gametime to modal
+            var gameTime = $("#timer").text()
+            // add time from gameinstance to modal 
+            $("#gameinstancescore").text(gameTime);
+            console.log(gameTime);
+
+            postGameModal.removeClass("postgamemodal");
+                postGameModal.addClass("instructionsmodal");
+            // close post game modal click event
+            $("#post-game-btn").on("click", function () {
+                postGameModal.removeClass("instructionsmodal");
+                postGameModal.addClass("postgamemodal");
+                $("#gameinstancescore").text("");
+            })
+        }
+    })
+
+</script>
 
 </html>

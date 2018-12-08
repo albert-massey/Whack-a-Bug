@@ -1,46 +1,73 @@
 $(document).ready(function () {
 
     // Global variables
-    var moles = 5;
-    var gridSize = 25;
+    var slapSound = document.getElementById("slap");
+    var moles;
+    var gridSize = 36;
     var moleIndexes = [];
     var time = 0;
     var started = false;
+    var lastClicked = -1;
 
-    $("#bugcount").text(moles);
+    var difficulty = $(".activedifficulty").text().toLowerCase();
 
-    // TODO
-    // difficulty settings determin different grid sizes and mole counts
+    $(document).on("click", ".btndifficulty", function () {
+        difficulty = $(this).text().toLowerCase();
+    })
 
-    //-------------------------------------------------------
+    function setDifficulty(diffSet) {
+        console.log(difficulty)
+        switch (diffSet) {
+            case "easy":
+                moles = 6;
+                break;
+            case "medium":
+                moles = 12;
+                break;
+            case "hard":
+                moles = 18;
+                break;
+            case "plague":
+                moles = gridSize;
+                break;
+            default:
+                moles = 6;
+        }
+        $("#bugcount").text(moles);
+
+        var firstLetter = diffSet[0].toUpperCase();
+        diffSet = diffSet.slice(1);
+        $("#difficulty").text(firstLetter + diffSet);
+    }
+
     // Run program
-    $(".modal-background").on("click", function () {
+    //-------------------------------------------------------
+    function run() {
         if (!started) {
+            setDifficulty(difficulty);
             placeMoles();
             start();
             started = true;
         }
-    });
-    $("#closemodalbtn").on("click", function () {
-        if (!started) {
-            placeMoles();
-            start();
-            started = true;
-        }
-    });
+    }
+
     $("#start-game-btn").on("click", function () {
-        if (!started) {
-            placeMoles();
-            start();
-            started = true;
-        }
+        run();
+    });
+
+    $("#gameplay-instructions-btn").on("click", function () {
+        started = false;
+        lastClicked = -1;
+        stop();
+        reset();
+        resetMoles();
     });
     //-------------------------------------------------------
 
     function randomize() {
         for (i = 0; i < moles; i++) {
             var rand = Math.floor(Math.random() * Math.floor(gridSize));
-            if (moleIndexes.includes(rand)) {
+            if (moleIndexes.includes(rand) || rand === lastClicked) {
                 i--;
             } else {
                 moleIndexes.push(rand);
@@ -61,13 +88,14 @@ $(document).ready(function () {
             $("#" + moleIndexes[i]).attr("data-lit", "false").css("filter", "hue-rotate(120deg) brightness(1.5) grayscale(30%)");
         }
         moleIndexes = [];
-        placeMoles();
     }
 
     $(document).on("click", '[data-lit="true"]', function () {
-        // console.log("mole clicked")
+        slapSound.play();
+        lastClicked = parseInt($(this).attr("id"));
         moles--;
         $("#bugcount").text(moles);
+
         if (moles === 0) {
             $(this).attr("data-lit", "false").css("filter", "hue-rotate(120deg) brightness(1.5) grayscale(30%)");
             stop();
@@ -91,11 +119,14 @@ $(document).ready(function () {
             });
         } else {
             resetMoles();
+            placeMoles();
         }
     });
 
-    // TODO
-    // clicking unlit moles results in time penalty
+    $(document).on("click", '[data-lit="false"]', function () {
+        time += 100;
+        console.log("TIME PENALTY");
+    });
 
     //-----------------------------------------------------------------------------
     // Stopwatch code
