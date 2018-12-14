@@ -4,7 +4,7 @@
 
 Whack-A-Bug is a full-stack game built for developers to release the inevitable stress that comes with being a developer. The goal of the game is to smash all of the "bugs" in the game box as quickly as possible.
 
-This app is deployed to Heroku at: https://whackabug.herokuapp.com/
+This app is deployed to Heroku at: https://whacky.herokuapp.com/
 
 ---------------------------------
 
