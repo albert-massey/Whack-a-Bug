@@ -19,7 +19,7 @@ $(document).ready(function () {
         console.log(difficulty)
         switch (diffSet) {
             case "easy":
-                moles = 1;
+                moles = 6;
                 break;
             case "medium":
                 moles = 12;
